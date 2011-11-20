@@ -1,0 +1,10 @@
+#######################################
+# Syntax Coloring Map for SoftwareTone
+#######################################
+
+SoftwareTone	KEYWORD1
+
+init	KEYWORD2
+enablePin	KEYWORD2
+disablePin	KEYWORD2
+setFreq	KEYWORD2

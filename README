@@ -1,0 +1,14 @@
+SoftwareTone: an Arduino library to generate square wave tones on pins 2-13.
+Written by Greg Friedland, November 20, 2011.
+
+With hardware PWM, you could make square waves on up to 6 pins by using up all the hardware timers. This
+can be limiting in some cases, such as wehn you want to use the timers for other things including some
+of the built-in Arduino functionality. The motivation for this library is to allow creation of square wave 
+tones on more pins than is possible with hardware PWM alone, up to 12 pin excluding 0 and 1, which are import
+for serial communication.
+
+To use this library, first download the code from include <SoftwareTone.h
+
+This library depends on the TimerOne library, and you must include <TimerOne.h> in your sketch. (This should
+be unnecessary because this file is included in the library also but it's an idiosyncrasy of the Arduino
+environment AFAIK.) If you don't include this header
