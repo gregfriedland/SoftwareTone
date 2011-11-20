@@ -56,17 +56,10 @@ void SoftwareToneClass::callback() {
   TOGGLE_PIN(13);  
 }
 
-void SoftwareToneClass::enablePin(unsigned short pin) {
-  enabled[pin] = true;
-  pinMode(pin, OUTPUT);
-}
-
-void SoftwareToneClass::disablePin(unsigned short pin) {
-  enabled[pin] = false;
-}
-
 void SoftwareToneClass::setFreq(unsigned short pin, unsigned int f) {
   if (f != 0) {
+    enabled[pin] = true;
+    pinMode(pin, OUTPUT);
     topVals[pin] = 1000000 / TIMER_PERIOD / 2 / f;
   } else {
     enabled[pin] = false;
