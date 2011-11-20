@@ -2,13 +2,38 @@ SoftwareTone: an Arduino library to generate square wave tones on pins 2-13.
 Written by Greg Friedland, November 20, 2011.
 
 With hardware PWM, you could make square waves on up to 6 pins by using up all the hardware timers. This
-can be limiting in some cases, such as wehn you want to use the timers for other things including some
+can be limiting in some cases, such as when you want to use the timers for other things including some
 of the built-in Arduino functionality. The motivation for this library is to allow creation of square wave 
-tones on more pins than is possible with hardware PWM alone, up to 12 pin excluding 0 and 1, which are import
-for serial communication.
+tones on more pins than is to avoid these limitations and to generate sqaure waves on more pins than is possible
+with hardware PWM alone, up to 12 pin excluding 0 and 1 (which are important for serial communication).
 
-To use this library, first download the code from include <SoftwareTone.h
+To install this library, first download the code from https://github.com/gregfriedland/SoftwareTone/zipball/master.
+Unzip the downloaded zip file and copy the SoftwareTone directory to <ArduinoDirectory>/libraries. On Mac OS X, 
+this would be at ~/Documents/Arduino/libraries.
 
-This library depends on the TimerOne library, and you must include <TimerOne.h> in your sketch. (This should
+Usage is:
+
+init(): 
+	initialize the library before using it.
+
+setFreq(pin, frequency):
+	set the frequency of the given pin. 
+
+enablePin(pin):
+	enable the given pin (2-13) for software tone generation.
+
+disablePin(pin):
+	disable the given pin (2-13) for software tone generation.	
+
+
+
+This library depends on the TimerOne library and you must include <TimerOne.h> in your sketch. (This should
 be unnecessary because this file is included in the library also but it's an idiosyncrasy of the Arduino
-environment AFAIK.) If you don't include this header
+environment AFAIK.) If you don't include this header, you will get a compile timer error such as:
+	    SoftwareTone/SoftwareTone.cpp:8:22: error: TimerOne.h: No such file or directory
+	    SoftwareTone/SoftwareTone.cpp: In member function 'void SoftwareToneClass::init()':
+	    SoftwareTone/SoftwareTone.cpp:21: error: 'Timer1' was not declared in this scope
+
+An example sketch is available in the examples directory.
+
+Happy tone generation!
