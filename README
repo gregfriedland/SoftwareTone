@@ -7,13 +7,13 @@ of the built-in Arduino functionality. The motivation for this library is to all
 tones on more pins than is to avoid these limitations and to generate sqaure waves on more pins than is possible
 with hardware PWM alone, up to 12 pin excluding 0 and 1 (which are important for serial communication).
 
-Since this library uses software instead of hardware to generate the tones, it has limitations at high frequencies. The
-the pin states are updated every 50 microseconds but, which is not fast enough to create frequencies above
+Since this library uses software instead of hardware to generate the tones, it has limitations at high frequencies.
+The the pin states are updated every 50 microseconds but, which is not fast enough to create frequencies above
 10kHz (since a square wave needs two pin state changes for each cycle). Also, higher frequencies will be rounded to 
 a nearby frequency. For example, for 6kHz you would want a half period of 1000000us / 2 / 6000Hz = 83.3us which is 
 obviously not a multiple of 50. The way this is handled is to take the floor of the number of the desired half period
-divided by 50us. Thus, setting a frequncy of 6kHz will result in an output frequency of 10kHz. (Note: the library could be 
-altered to handle an arbitrary high frequency below 10kHz by changing the update time; however, this would break 
+divided by 50us. Thus, setting a frequncy of 6kHz will result in an output frequency of 10kHz. (Note: the library could
+be altered to handle an arbitrary high frequency below 10kHz by changing the update time; however, this would break 
 other frequencies.) If you have thoughts about how to improve this behavior, let me know.
 
 To install this library, first download the code from https://github.com/gregfriedland/SoftwareTone/zipball/master.
